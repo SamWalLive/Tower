@@ -10,7 +10,7 @@ public class LanguageController : MonoBehaviour {
 
 	void Start ()
     {
-        currentLanguage = nlnl;
+        currentLanguage = engb;
 	}
 	
     public string GetString(string input)
