@@ -3,14 +3,18 @@ using System.Collections;
 
 public class LanguageController : MonoBehaviour {
 
-    private Language currentLanguage;
+    public Language currentLanguage;
 
     public Language engb;
     public Language nlnl;
 
 	void Start ()
     {
-        currentLanguage = engb;
+        Language newTest = new Language();
+        if (currentLanguage == newTest)
+        {
+            currentLanguage = engb;
+        }
 	}
 	
     public string GetString(string input)
