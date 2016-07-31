@@ -23,8 +23,4 @@ public class ResidentialLevelController : MonoBehaviour {
 
 	}
 	
-	void Update ()
-    {
-	    
-	}
 }

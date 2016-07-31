@@ -15,7 +15,8 @@ public class LanguageController : MonoBehaviour {
         {
             currentLanguage = engb;
         }
-	}
+        currentLanguage.Generate();
+    }
 	
     public string GetString(string input)
     {

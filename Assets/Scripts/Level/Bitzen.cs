@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Bitzen : MonoBehaviour {
 
-    public string firstName;
-    public string lastName;
+    public GameObject jobLevel;
+
+    private string firstName;
+    private string lastName;
 
     private Names getName;
 
@@ -14,5 +16,15 @@ public class Bitzen : MonoBehaviour {
         firstName = getName.GetFirstName();
         lastName = getName.GetLastName();
 	}
+
+    public  string GetFirstName()
+    {
+        return firstName;
+    }
+
+    public string GetLastName()
+    {
+        return lastName;
+    }
 	
 }

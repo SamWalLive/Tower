@@ -3,6 +3,9 @@
 public class ClickCamera : MonoBehaviour
 {
     public float dragSpeed = 2;
+    public float topBand;
+    public float bottomBand;
+
     private Vector3 dragOrigin;
 
 
@@ -20,6 +23,17 @@ public class ClickCamera : MonoBehaviour
         Vector3 move = new Vector3(0f, pos.y * dragSpeed, 0f);
 
         transform.Translate(move, Space.World);
+
+        if (transform.position.y  > topBand)
+        {
+            transform.Translate(new Vector3(0f, -(transform.position.y - topBand), 0f));
+        }
+
+        if (transform.position.y < bottomBand)
+        {
+            transform.Translate(new Vector3(0f, -(transform.position.y - bottomBand), 0f));
+        }
+
     }
 
 
