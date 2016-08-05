@@ -18,6 +18,6 @@ public class Names : MonoBehaviour {
 
     public string GetLastName()
     {
-        return firstNames[Random.Range(0, firstNames.Length)];
+        return lastNames[Random.Range(0, firstNames.Length)];
     }
 }

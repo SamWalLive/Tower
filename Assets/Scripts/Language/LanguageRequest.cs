@@ -9,13 +9,14 @@ public class LanguageRequest : MonoBehaviour {
 
     private Text textArea;
 
-	void Start () {
+	void Start ()
+    {
         controller = FindObjectOfType<LanguageController>();
         textArea = GetComponent<Text>();
         SetText();
 	}
 
-    void SetText()
+    public void SetText()
     {
         textArea.text = controller.GetString(textToRequest);
     }

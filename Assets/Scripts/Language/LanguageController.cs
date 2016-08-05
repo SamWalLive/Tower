@@ -4,18 +4,29 @@ using System.Collections;
 public class LanguageController : MonoBehaviour {
 
     public Language currentLanguage;
+    public Language newLanguage;
 
     public Language engb;
     public Language nlnl;
 
 	void Start ()
     {
-        Language newTest = new Language();
-        if (currentLanguage == newTest)
+        if (!currentLanguage)
         {
             currentLanguage = engb;
         }
         currentLanguage.Generate();
+    }
+
+    public void ChangeLanguage(Language newLanguage)
+    {
+        currentLanguage = newLanguage;
+        currentLanguage.Generate();
+        LanguageRequest[] languageRequests = FindObjectsOfType<LanguageRequest>();
+        foreach (LanguageRequest request in languageRequests)
+        {
+            request.SetText();
+        }
     }
 	
     public string GetString(string input)
@@ -29,4 +40,16 @@ public class LanguageController : MonoBehaviour {
         }
         return output;
     }
+
+    void Update()
+    {
+        if (newLanguage)
+        {
+            if (currentLanguage != newLanguage)
+            {
+                ChangeLanguage(newLanguage);
+            }
+        }
+    }
+
 }

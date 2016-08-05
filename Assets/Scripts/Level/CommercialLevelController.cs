@@ -13,6 +13,11 @@ public class CommercialLevelController : MonoBehaviour {
         startPosition = this.transform.Find("Elevetor Exit").transform;
     }
 	
+    public Transform GetElevatorExit()
+    {
+        return startPosition;
+    }
+
 	void Update ()
     {
 	    
