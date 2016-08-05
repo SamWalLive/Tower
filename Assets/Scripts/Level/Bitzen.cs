@@ -5,8 +5,8 @@ public class Bitzen : MonoBehaviour {
 
     public GameObject jobLevel;
 
-    private string firstName;
-    private string lastName;
+    public string firstName;
+    public string lastName;
 
     private Names getName;
 
