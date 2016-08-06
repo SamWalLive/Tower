@@ -134,9 +134,7 @@ public class LevelStarter : MonoBehaviour {
 
 
         Debug.Log("Unsorted: " + GetComponent<LevelsController>().levels.ToString());
-        GetComponent<LevelsController>().levels.Sort((level1, level2) => level1.GetComponent<Level>().position.CompareTo(level2.GetComponent<Level>().position));
-        Debug.Log("Sorted: " + GetComponent<LevelsController>().levels.ToString());
-        //list.Sort((s1, s2) => s1.Score.CompareTo(s2.Score));
+        GetComponent<LevelsController>().levels.Sort((level2, level1) => level1.GetComponent<Level>().position.CompareTo(level2.GetComponent<Level>().position));
 
     }
 
