@@ -15,6 +15,7 @@ public class Bitzen : MonoBehaviour {
         getName = FindObjectOfType<Names>();
         firstName = getName.GetFirstName();
         lastName = getName.GetLastName();
+        name = "Bitzen: " + firstName + " " + lastName;
 	}
 
     public  string GetFirstName()

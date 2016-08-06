@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LevelStarter : MonoBehaviour {
 
@@ -22,7 +23,7 @@ public class LevelStarter : MonoBehaviour {
     public int minimumNumberOfServiceLevels;
     public int maximumNumberOfServiceLevels;
 
-    GameObject[] levels;
+    public GameObject[] levels;
     int numberOfLevels;
 
     private ClickCamera cameraScript;
@@ -53,12 +54,16 @@ public class LevelStarter : MonoBehaviour {
         int count = 0;
 
         levels[count] = Instantiate(arrivals);
+        levels[count].GetComponent<Level>().position = count;
+        levels[count].GetComponent<Level>().type = "Arrivals";
         Debug.Log("Count integer: " + count.ToString());
         count++;
 
         for (int i = 0; i < numberOfExtraResidentialLevels; i++, count++)
         {
             levels[count] = (GameObject)Instantiate(residential[Random.Range(0, residential.Length)], new Vector3(0f, count * spacer), arrivals.transform.rotation);
+            levels[count].GetComponent<Level>().position = count;
+            levels[count].GetComponent<Level>().type = "Residential";
             Debug.Log(count.ToString());
         }
 
@@ -66,6 +71,8 @@ public class LevelStarter : MonoBehaviour {
         for (int i = 0; i < numberOfExtraFoodLevels; i++, count++)
         {
             levels[count] = (GameObject)Instantiate(food[Random.Range(0, food.Length)], new Vector3(0f, count * spacer), arrivals.transform.rotation);
+            levels[count].GetComponent<Level>().position = count;
+            levels[count].GetComponent<Level>().type = "Food";
             Debug.Log(count.ToString());
         }
 
@@ -73,6 +80,8 @@ public class LevelStarter : MonoBehaviour {
         for (int i = 0; i < numberOfExtraRecreationLevels; i++, count++)
         {
             levels[count] = (GameObject)Instantiate(recreation[Random.Range(0, recreation.Length)], new Vector3(0f, count * spacer), arrivals.transform.rotation);
+            levels[count].GetComponent<Level>().position = count;
+            levels[count].GetComponent<Level>().type = "Recreation";
             Debug.Log(count.ToString());
         }
 
@@ -80,6 +89,8 @@ public class LevelStarter : MonoBehaviour {
         for (int i = 0; i < numberOfExtraRetailLevels; i++, count++)
         {
             levels[count] = (GameObject)Instantiate(retail[Random.Range(0, retail.Length)], new Vector3(0f, count * spacer), arrivals.transform.rotation);
+            levels[count].GetComponent<Level>().position = count;
+            levels[count].GetComponent<Level>().type = "Retail";
             Debug.Log(count.ToString());
         }
 
@@ -87,6 +98,8 @@ public class LevelStarter : MonoBehaviour {
         for (int i = 0; i < numberOfExtraServiceLevels; i++, count++)
         {
             levels[count] = (GameObject)Instantiate(service[Random.Range(0, service.Length)], new Vector3(0f, count * spacer), arrivals.transform.rotation);
+            levels[count].GetComponent<Level>().position = count;
+            levels[count].GetComponent<Level>().type = "Service";
             Debug.Log(count.ToString());
         }
 
@@ -119,6 +132,12 @@ public class LevelStarter : MonoBehaviour {
 
         Debug.Log("<size=25>----------</size>");
 
-	}
-	
+
+        Debug.Log("Unsorted: " + GetComponent<LevelsController>().levels.ToString());
+        GetComponent<LevelsController>().levels.Sort((level1, level2) => level1.GetComponent<Level>().position.CompareTo(level2.GetComponent<Level>().position));
+        Debug.Log("Sorted: " + GetComponent<LevelsController>().levels.ToString());
+        //list.Sort((s1, s2) => s1.Score.CompareTo(s2.Score));
+
+    }
+
 }
