@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CommercialLevelController : MonoBehaviour {
 
-    public Product[] products = new Product[2];
-    public GameObject[] workers = new GameObject[2];
+    public List<Product> products;
+    public List<GameObject> workers;
 
     private Transform startPosition;
 

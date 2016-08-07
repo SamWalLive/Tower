@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ResidentialLevelController : MonoBehaviour {
 
+    public int maximumNumberOfBitzens;
+
     public GameObject bitzenPrefab;
-    [HideInInspector]
-    public GameObject[] bitzens = new GameObject[4];
+    public List<GameObject> bitzens;
 
     private Transform startPosition;
 

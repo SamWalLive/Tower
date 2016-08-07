@@ -131,11 +131,6 @@ public class LevelStarter : MonoBehaviour {
         Debug.Log("Biggest Item: " + levels[levels.Length - 1].name + (levels.Length - 1).ToString());
 
         Debug.Log("<size=25>----------</size>");
-
-
-        Debug.Log("Unsorted: " + GetComponent<LevelsController>().levels.ToString());
-        GetComponent<LevelsController>().levels.Sort((level2, level1) => level1.GetComponent<Level>().position.CompareTo(level2.GetComponent<Level>().position));
-
     }
 
 }
